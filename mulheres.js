@@ -1,0 +1,36 @@
+const express = require("express")
+const router = express.Router()
+
+const app = express()
+const porta = 3333
+
+const mulheres = [
+    {
+        nome: 'Amanda Ribeiro',
+        imagem: 'https://carnavalesco.com.br/wp-content/uploads/2023/08/chegou_o_que_faltava_2023-5.jpg',
+        minibio: 'Aspirante a Dev, apaixonada pela cultura popular e tecnologia'
+    },
+
+    {
+        nome: 'Amanda Souza',
+        imagem: 'sem foto',
+        minibio: 'Aspirante a Dev, apaixonada pela cultura popular e tecnologia'
+    },
+    
+    {
+        nome: 'Amanda Hess',
+        imagem: 'foto desconhecida',
+        minibio:'sem bio'
+    }
+]
+
+function mostraMulheres(request, response) {
+    response.json(mulheres)
+}
+
+function mostraPorta() {
+    console.log("Servidor criado e rodando na porta ", porta)
+}
+
+app.use(router.get('/mulheres',mostraMulheres))
+app.listen(porta, mostraPorta)
